@@ -16,12 +16,12 @@ class Subjects extends Component {
           return b.points - a.points;
         case "semester":
           if (a.semester != null && b.semester != null) {
-            return a.semester.localeCompare(b.semester);
           } else if (a.semester != null) {
             return 1;
           } else if (b.semester != null) {
             return -1;
           }
+          return a.semester.localeCompare(b.semester);
         case "priority":
           // console.log(a.requires, b.requires);
           let reqA = a.requires !== null ? a.requires : [""];
