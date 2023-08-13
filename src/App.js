@@ -1,6 +1,6 @@
 
 import React, { Component } from "react";
-import data from "./data/ifi_subjects_temp2.json";
+import data from "./data/ifi_subjects_010823.json";
 import Subjects from "./components/Subjects";
 import SemesterPlan from "./components/Semesterplan";
 
@@ -51,22 +51,22 @@ class App extends Component {
     for (const node of nodeList) {
       
       let nodeUsed = node;
-      let equivs = null;
+    //   let equivs = null;
       
-      if (node.equivalent != null) {
-        equivs = [...node.equivalent, node];
-        equivs = equivs.sort((a, b) => a.code.localeCompare(b.code));
-        nodeUsed = equivs[0];
+    //   if (node.equivalent != null) {
+    //     equivs = [...node.equivalent, node];
+    //     equivs = equivs.sort((a, b) => a.code.localeCompare(b.code));
+    //     nodeUsed = equivs[0];
         
-        result.filter((a) => {
-          for (const ntemp of equivs) {
-            if (a.code == ntemp.code) {
-              return false;
-            }
-          }
-          return true;
-        });
-      }
+    //     result.filter((a) => {
+    //       for (const ntemp of equivs) {
+    //         if (a.code == ntemp.code) {
+    //           return false;
+    //         }
+    //       }
+    //       return true;
+    //     });
+    //   }
       
       if (nodeUsed.msubs != null) {
         let rec = data.nodes.filter((n) => nodeUsed.msubs.includes(n.id));
