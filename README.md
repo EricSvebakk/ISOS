@@ -1,5 +1,5 @@
 
-# IFI emner oversikt (uoffisiell)
+# IFI subject overview site
 
 This is a tool designed to visualize the prerequisites that are mandatory/recommended for informatics courses and to design a semester plan. You can find the tool [here](https://ericsvebakk.github.io/Projects/).
 
