@@ -1,10 +1,10 @@
 
 import React, { Component } from "react";
 import data from "./data/ifi_subjects_010823.json";
-import Subjects from "./components/subjectManagement/Subjects";
+// import Subjects from "./components/subjectManagement/Subjects";
 // import SemesterPlan from "./components/Semesterplan";
 // import Settings from "./components/Settings";
-import { SubjectManager } from "./components/subjectManagement/SubjectManager";
+import SubjectManager from "./components/subjectManagement/SubjectManager";
 
 
 import { MyNavbar } from "./components/Navbar";
@@ -206,7 +206,7 @@ class App extends Component {
         <MyNavbar></MyNavbar>
         <div className="app-container">
           <section className="left">
-            <ForceGraph
+            {/* <ForceGraph
               linksData={data.links}
               nodesData={subjectsSelected}
               funcColor={funcColor}
@@ -214,7 +214,7 @@ class App extends Component {
               mytemp={this.setForceGraphUpdater}
               setNodesPosition={this.setNodesPosition}
               nodesPosition={nodesPosition}
-            />
+            /> */}
             {/* <div className="spacer" /> */}
             {/* <div style={{ display: "inline-block" }}>
               
@@ -239,7 +239,7 @@ class App extends Component {
 
           <section className="middle">
             <SubjectManager
-              subjects={nodes}
+              subjects={data.nodes}
               setSubjects={null}
               
               forceGraphUpdater={forceGraphUpdater}

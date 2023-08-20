@@ -1,5 +1,5 @@
-import { Component } from "react";
-import Subjects from "./Subjects";
+import React, { Component } from "react";
+// import Subjects from "./Subjects";
 // import { SubjectContainer } from "./SubjectContainer";
 
 class SubjectManager extends Component {
@@ -12,6 +12,10 @@ class SubjectManager extends Component {
   constructor(props) {
     super(props);
 
+    // props:
+    // nodes
+    // 
+    
     this.state = {
       subjects: props.subjects,
 
@@ -51,6 +55,9 @@ class SubjectManager extends Component {
     );
   }
 }
+
+export default SubjectManager;
+
 
 function selectSubject(nodeElement, subsVisible, subsSelected, FGUpdater) {
 
