@@ -11,6 +11,11 @@
   --middle-bg-color: #ecf1ef;
   --right-bg-color: #ecf1ef;
   --test-color: rgba(255, 0, 0, 0);
+  
+  --size-left: 40%;
+  --size-middle: 40%;
+  --size-right: 20%;
+  
   /* --left-bg-color: rgb(170, 170, 170);
   --middle-bg-color: rgb(138, 255, 138);
   --right-bg-color: rgb(255, 255, 118); */
@@ -73,19 +78,20 @@
   }
   .left {
     display: flex;
-    width: 30%;
+    width: var(--size-left);
     background: var(--left-bg-color);
+    flex-direction: column;
   }
   .middle {
     display: flex;
-    width: 10%;
-    
-    flex-direction: column;
+    width: var(--size-middle);
     background: var(--middle-bg-color);
+    flex-direction: column;
   }
   .right {
-    width: 60%;
+    width: var(--size-right);
     background: var(--right-bg-color);
+    flex-direction: column;
   }
 }
 /* end smartphone layout */
@@ -147,37 +153,57 @@
   }
   .left {
     display: flex;
-    width: 40%;
+    width: var(--size-left);
     background: var(--left-bg-color);
-    
+    flex-direction: column;
   }
   .middle {
     display: flex;
-    width: 30%;
-    flex-direction: column;
-    
+    width: var(--size-middle);
     background: var(--middle-bg-color);
+    flex-direction: column;    
   }
   .right {
-    width: 30%;
+    display: flex;
+    width: var(--size-right);
     background: var(--right-bg-color);
+    flex-direction: column;
   }
 
   /* ========================================== */
+  
+  /* .subject-search {
+    margin: 10px;
+  } */
+  
+  /* ========================================== */
+
+  .outer-outer {
+    display: block;
+    background-color: red;
+  }
   
   .subject-search {
-    margin: 10px;
+    background-color: greenyellow;
+    padding: 10px;
+    /* width: 100px;
+    height: 100px; */
   }
   
-  /* ========================================== */
-
   .inner-container-subject-table {
     
     border: black solid 1px;
     border-radius: 10px;
+    padding: 10px;
+    
+    background-color: purple;
   }
 
+  
   .subject-table {
+    
+    /* padding: 10px; */
+    
     background-color: var(--table-bg-color);
 
     width: 100%;
@@ -249,6 +275,8 @@
   }
 
   .semester-table {
+    
+    /* margin: 10px; */
     background-color: var(--table-bg-color);
     outline: 1px solid var(--table-border-color);
     filter: brightness(85%);
