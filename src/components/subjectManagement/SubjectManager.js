@@ -64,7 +64,37 @@ class SubjectManager extends Component {
       subjectsSelected: [],
     });
   };
+
+  filterSubjects = (e) => {
+    const { subjectsAll } = this.state;
+    
+    let newSubjectsVisible = subjectsAll.filter(
+      (node) =>
+        node.code.toLowerCase().includes(e.toLowerCase()) ||
+        node.title.toLowerCase().includes(e.toLowerCase())
+    );
+    
+    // console.log(e, newSubjectsVisible);
+    this.setState({
+      subjectsVisible: newSubjectsVisible,
+    });
+  };
   
+  toggleSubjectLevel = (level) => {
+    const { subjectLevelsSelected } = this.state;
+    
+    // console.log("1", subjectLevelsSelected);
+    
+    this.setState({
+      subjectLevelsSelected: {
+        ...subjectLevelsSelected,
+        [level]: !subjectLevelsSelected[level],
+      }
+    });
+    
+    // console.log("2", this.state.subjectLevelsSelected)
+  }
+
   constructor(props) {
     super(props);
 
@@ -72,6 +102,11 @@ class SubjectManager extends Component {
       subjectsAll: props.subjectsAll,
       subjectsVisible: props.subjectsAll,
       subjectsSelected: [],
+      subjectLevelsSelected: {
+        "bachelor": true,
+        "master": true,
+        "phd": true
+      },
       
       setSubjectsSelected: props.setSubjectsSelected,
     };
@@ -144,6 +179,20 @@ class SubjectManager extends Component {
         </tr>
       );
     });
+    
+    const checkBoxes = Object.entries(subjectLevelsSelected).map(([key, val]) => {
+      return (
+        <div style={{ padding: "5px" }}>
+          {key}
+          <input
+            style={{ margin: "2px" }}
+            type="checkbox"
+            checked={val}
+            onChange={() => this.toggleSubjectLevel(key)}
+          />
+        </div>
+      );
+    });
 
     // elements
     return (
@@ -154,8 +203,18 @@ class SubjectManager extends Component {
             name="filter"
             type="text"
             placeholder="tast inn kode eller navn"
+            style={{width:"100%"}}
             onChange={(event) => this.filterSubjects(event.target.value)}
           />
+          <div style={{
+            // height:"50px",
+            width: "100%",
+            backgroundColor:"brown",
+            marginTop:"10px"
+          }}>
+            Show
+            {checkBoxes}
+          </div>
         </div>
 
         <div className="inner-container-subject-table">
