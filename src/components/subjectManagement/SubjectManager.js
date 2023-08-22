@@ -3,133 +3,144 @@ import React, { Component } from "react";
 // import { SubjectContainer } from "./SubjectContainer";
 
 class SubjectManager extends Component {
-  
-  selectSubject = (e) => {  
+  selectSubject = (e) => {
     const {
       subjectsVisible,
       subjectsSelected,
+      setSubjectsSelected,
     } = this.state;
-    
+
+    const { forceGraphUpdater } = this.props;
+
     const dataItem = e.currentTarget.getAttribute("data-item");
     const temp = subjectsVisible.filter((a) => a.code === dataItem)[0];
 
+    let newSubjectsSelected = [];
+
     if (!subjectsSelected.includes(temp)) {
-      const result = this.selectPrereq([temp]);
-      const result2 = result.filter((n) => !subjectsSelected.includes(n));
-      const result3 = [...new Set(result2)];
+      const resultPrereqCodes = this.selectPrereq([temp]);
+      const resultPrereqs = resultPrereqCodes.filter(
+        (n) => !subjectsSelected.includes(n)
+      );
+      const resultUniquePrereqs = [...new Set(resultPrereqs)];
 
-      let result4 = [...result3];
-      
-      // console.log("r4", result4)
+      newSubjectsSelected = [...subjectsSelected, ...resultUniquePrereqs];
+    } else {
+      newSubjectsSelected = subjectsSelected.filter((sub) => sub !== temp);
+    }
 
-      this.setState({
-        subjectsSelected: [...subjectsSelected, ...result4],
-      });
-    }
-    
-    else {
-      this.setState({
-        subjectsSelected: subjectsSelected.filter((sub) => sub !== temp),
-      });
-    }
-    
+    this.setState({
+      subjectsSelected: newSubjectsSelected,
+    });
+
+    setSubjectsSelected(newSubjectsSelected);
+    forceGraphUpdater();
   };
-  
+
   selectPrereq = (nodeList) => {
-    const {
-      subjectsAll
-    } = this.state;
+    const { subjectsAll } = this.state;
 
     let result = [...nodeList];
-    
+
     for (const node of nodeList) {
       let nodeUsed = node;
-      
+
       if (nodeUsed.msubs != null) {
         let rec = subjectsAll.filter((n) => nodeUsed.msubs.includes(n.id));
         result = [...result, ...this.selectPrereq(rec)];
       }
-      
+
       if (nodeUsed.rsubs != null) {
         let rec = subjectsAll.filter((n) => nodeUsed.rsubs.includes(n.id));
         result = [...result, ...this.selectPrereq(rec)];
       }
     }
-    
-    
-    // console.log("res", result)
+
     return result;
   };
-  clearSubjects = () => {
+
+  clearSubjectSelection = () => {
     this.setState({
       subjectsSelected: [],
     });
   };
   
-  
   constructor(props) {
     super(props);
-    
+
     this.state = {
       subjectsAll: props.subjectsAll,
       subjectsVisible: props.subjectsAll,
       subjectsSelected: [],
-
       
-      // setSubjectsVisible: null,
-      // setSubjectsSelected: null,
-
-      forceGraphUpdater: null,
+      setSubjectsSelected: props.setSubjectsSelected,
     };
   }
 
   render() {
-    
-    const {
-      subjectsAll,
-      subjectsVisible,
-      subjectsSelected,
-    } = this.state;
-    
-    // const {
-    //   subjectsAll,
-    // } = this.props;
-    
-    // console.log("ren", subjectsAll);
-    // console.log("ren2", subjectsAll);
-    
+    const { subjectsAll, subjectsVisible, subjectsSelected, subjectLevelsSelected } = this.state;
+
     const c1 = { width: "10%" };
     const c2 = { width: "40%" };
     const c3 = { width: "15%" };
     const c4 = { width: "10%" };
-    const c5 = { width: "15%" };
-    
-  	const theadData = <tr>
-      <th style={c1} data-item={"code"} id="th1">code</th>
-      <th style={c2} data-item={"title"}>title</th>
-      <th style={c4} data-item={"points"}>points</th>
-      <th style={c3} data-item={"semester"}>semester</th>
-      <th style={c5} data-item={"priority"}>priority</th>
-    </tr>
-    
-    const tbodyData = subjectsAll.map((row) => {
-    
+    // const c5 = { width: "15%" };
+
+    const theadData = (
+      <tr>
+        <th style={c1} data-item={"code"} id="th1">
+          code
+        </th>
+        <th style={c2} data-item={"title"}>
+          title
+        </th>
+        <th style={c4} data-item={"points"}>
+          points
+        </th>
+        <th style={c3} data-item={"semester"}>
+          semester
+        </th>
+        {/* <th style={c5} data-item={"priority"}>
+          priority
+        </th> */}
+      </tr>
+    );
+
+    const tbodyData = subjectsVisible.map((row) => {
       const isSelected = subjectsSelected.map((d) => d.id).includes(row.id);
-      const semRow = row.semester === null ? 
-        <td style={c3} data-item={row.code}>{"utilgjengelig"}</td> :
-        <td style={c3} data-item={row.code}>{row.semester}</td>
+      const semRow =
+        row.semester === null ? (
+          <td style={c3} data-item={row.code}>
+            {"utilgjengelig"}
+          </td>
+        ) : (
+          <td style={c3} data-item={row.code}>
+            {row.semester}
+          </td>
+        );
 
       return (
         <tr key={row.id} style={trStyle(isSelected, row)}>
           <td style={c1}>
-            <a style={{ color: "black" }} href={link(row.code)} target="_blank" rel="noopener noreferrer">
+            <a
+              style={{ color: "black" }}
+              href={link(row.code)}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               {row.code}
             </a>
           </td>
-          <td style={c2} data-item={row.code} onClick={this.selectSubject}>{row.title}</td>
-          <td style={c4} data-item={row.code} onClick={this.selectSubject}>{row.points}</td>
+          <td style={c2} data-item={row.code} onClick={this.selectSubject}>
+            {row.title}
+          </td>
+          <td style={c4} data-item={row.code} onClick={this.selectSubject}>
+            {row.points}
+          </td>
           {semRow}
-          <td style={c5} data-item={row.code} onClick={this.selectSubject}>{row.requires != null ? row.requires.join(", ") : ""}</td>
+          {/* <td style={c5} data-item={row.code} onClick={this.selectSubject}>
+            {row.requires != null ? row.requires.join(", ") : ""}
+          </td> */}
         </tr>
       );
     });
@@ -145,7 +156,6 @@ class SubjectManager extends Component {
             placeholder="tast inn kode eller navn"
             onChange={(event) => this.filterSubjects(event.target.value)}
           />
-          <button className="...">search</button>
         </div>
 
         <div className="inner-container-subject-table">
@@ -157,15 +167,15 @@ class SubjectManager extends Component {
             <table className="subject-table">
               <thead>{theadData}</thead>
               <tbody>{tbodyData}</tbody>
-              <tfoot>
+              <div className="subject-tfoot">
                 <button
                   className="subject-button"
                   // data-item={visibleSubjects}
-                  onClick={this.clearSubjects}
+                  onClick={this.clearSubjectSelection}
                 >
                   nullstill
                 </button>
-              </tfoot>
+              </div>
             </table>
           </div>
         </div>

@@ -5,20 +5,19 @@ import styles from "./forceGraph.module.css";
 export function ForceGraph({
   linksData,
   nodesData,
-  nodeHoverTooltip,
-  mytemp,
-  funcColor,
-  setNodesPosition,
   nodesPosition,
+  setNodesPosition,
+  setForceGraphUpdater,
+  funcColor
+  
+  // nodeHoverTooltip,
+  // funcColor,
 }) {
   const containerRef = React.useRef(null);
 
-  // let text = "text"
-  // let hovered = (node) => {
-    
-  //   text = <div style={{padding: "10px", fontSize:"12pt", zIndex:100}}>{node.title}</div>
-  //   console.log("h!", node.title, text)
-  // }
+  // const funcColor = () => {}
+  const nodeHoverTooltip = () => {}
+  
   
   React.useEffect(() => {
     let destroyFn;
@@ -36,9 +35,9 @@ export function ForceGraph({
       );
       destroyFn = destroy;
 
-      nodes();
+      // nodes();
 
-      mytemp(update);
+      setForceGraphUpdater(update); 
     }
 
     return destroyFn;

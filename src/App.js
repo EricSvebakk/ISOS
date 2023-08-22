@@ -2,11 +2,11 @@
 import React, { Component } from "react";
 
 import data from "./data/ifi_subjects_010823.json";
-// import { codeColor, semesterColor } from "./components/NodeColor";
+import { codeColor, semesterColor } from "./components/NodeColor";
 
 import { MyNavbar } from "./components/Navbar";
 import SubjectManager from "./components/subjectManagement/SubjectManager";
-// import { ForceGraph } from "./components/graphing/ForceGraph";
+import { ForceGraph } from "./components/graphing/ForceGraph";
 // import SemesterPlan from "./components/Semesterplan";
 
 
@@ -16,17 +16,27 @@ class App extends Component {
     subjectsAll: data.nodes,
     subjectsSelected: [],
     subjectsSelectedNodePosition: [],
+    forceGraphUpdater: () => {console.log("FGU empty")},
+    funcColor: codeColor
   }
   
-  // new functions
-  // setSubjectsSelected = () => {
-  //   this.setState({
-  //     subjectsSelected
-  //   })
-  // }
+  
+  setSubjectsSelected = (newSubjectsSelected) => {
+    this.setState({
+      subjectsSelected: newSubjectsSelected,
+    });
+  }
+  
+  setsubjectsSelectedNodePosition = (arr) => {
+    this.setState({
+      subjectsSelectedNodePosition: arr,
+    });
+  };
 
-  // ===============================================================
-  // sets the function which must be called when updating forceGraph
+  /**
+   * sets the function which must be called when updating forceGraph
+   * @param {*} e force-graph updater function
+   */
   setForceGraphUpdater = (e) => {
     this.setState({
       forceGraphUpdater: e,
@@ -38,15 +48,13 @@ class App extends Component {
     return node.title;
   };
 
-  setNodesPosition = (arr) => {
-    this.setState({
-      nodesPosition: arr,
-    });
-  };
-
   render() {
     const {
-      subjectsAll
+      subjectsAll,
+      subjectsSelected,
+      subjectsSelectedNodePosition,
+      forceGraphUpdater,
+      funcColor
     } = this.state;
     
 
@@ -56,20 +64,24 @@ class App extends Component {
         
         <div className="app-container">
           <section className="left">
-            {/* <ForceGraph
+            <ForceGraph
               linksData={data.links}
               nodesData={subjectsSelected}
+              nodesPosition={subjectsSelectedNodePosition}
+              setNodesPosition={this.setsubjectsSelectedNodePosition}
+              setForceGraphUpdater={this.setForceGraphUpdater}
               funcColor={funcColor}
-              nodeHoverTooltip={this.nodeHoverTooltip}
-              mytemp={this.setForceGraphUpdater}
-              setNodesPosition={this.setNodesPosition}
-              nodesPosition={nodesPosition}
-            /> */}
+              
+              // funcColor={funcColor}
+              // nodeHoverTooltip={this.nodeHoverTooltip}
+            />
           </section>
 
           <section className="middle">
             <SubjectManager
               subjectsAll={subjectsAll}
+              setSubjectsSelected={this.setSubjectsSelected}
+              forceGraphUpdater={forceGraphUpdater}
             />
           </section>
 

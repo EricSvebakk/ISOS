@@ -233,7 +233,7 @@
     height: 60vh;
   }
   
-  .subject-table tfoot {
+  .subject-table .subject-tfoot {
     display: table-row;
     width: 100%;
     
