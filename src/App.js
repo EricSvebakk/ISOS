@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 
 import data from "./data/ifi_subjects_010823.json";
-import { codeColor, semesterColor } from "./components/NodeColor";
+import { codeColor } from "./components/NodeColor";
 
 import { MyNavbar } from "./components/Navbar";
 import SubjectManager from "./components/subjectManagement/SubjectManager";

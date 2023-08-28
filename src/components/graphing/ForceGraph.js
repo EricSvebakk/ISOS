@@ -23,7 +23,7 @@ export function ForceGraph({
     let destroyFn;
 
     if (containerRef.current) {
-      const { destroy, update, nodes } = runForceGraph(
+      const { destroy, update } = runForceGraph(
         containerRef.current,
         linksData,
         nodesData,

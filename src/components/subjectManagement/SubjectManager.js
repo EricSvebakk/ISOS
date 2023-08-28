@@ -60,9 +60,13 @@ class SubjectManager extends Component {
   };
 
   clearSubjectSelection = () => {
+    const { forceGraphUpdater } = this.props;
+    
     this.setState({
       subjectsSelected: [],
     });
+    
+    forceGraphUpdater();
   };
 
   filterSubjects = (e) => {
@@ -81,18 +85,33 @@ class SubjectManager extends Component {
   };
   
   toggleSubjectLevel = (level) => {
-    const { subjectLevelsSelected } = this.state;
+    const { subjectLevelsSelected, subjectsAll } = this.state;
     
-    // console.log("1", subjectLevelsSelected);
+    
+    const newSLS = {...subjectLevelsSelected, [level]: !subjectLevelsSelected[level] }
+    const newSV = subjectsAll.filter((node) => {
+      
+        const num = parseInt(node.code.slice(2, node.code.length));
+        
+        if (!Number.isInteger(num)) {
+          return false;
+        }
+      
+        for (const [level, val] of Object.entries(newSLS)) {
+          if (!val) continue;    
+          if (level.localeCompare("bachelor") === 0 && (num < 4000)) return true;
+          else if (level.localeCompare("master") === 0 && (num < 9000) && (num >= 4000)) return true;
+          else if (level.localeCompare("phd") === 0 && (num >= 9000)) return true;
+        }
+        
+        return false;
+      }
+    );
     
     this.setState({
-      subjectLevelsSelected: {
-        ...subjectLevelsSelected,
-        [level]: !subjectLevelsSelected[level],
-      }
+      subjectLevelsSelected: newSLS,
+      subjectsVisible: newSV,
     });
-    
-    // console.log("2", this.state.subjectLevelsSelected)
   }
 
   constructor(props) {
@@ -105,7 +124,7 @@ class SubjectManager extends Component {
       subjectLevelsSelected: {
         "bachelor": true,
         "master": true,
-        "phd": true
+        "phd": true,
       },
       
       setSubjectsSelected: props.setSubjectsSelected,
@@ -113,7 +132,7 @@ class SubjectManager extends Component {
   }
 
   render() {
-    const { subjectsAll, subjectsVisible, subjectsSelected, subjectLevelsSelected } = this.state;
+    const { subjectsVisible, subjectsSelected, subjectLevelsSelected } = this.state;
 
     const c1 = { width: "10%" };
     const c2 = { width: "40%" };
@@ -153,6 +172,8 @@ class SubjectManager extends Component {
             {row.semester}
           </td>
         );
+        
+      // console.log(row.id)
 
       return (
         <tr key={row.id} style={trStyle(isSelected, row)}>
@@ -181,11 +202,12 @@ class SubjectManager extends Component {
     });
     
     const checkBoxes = Object.entries(subjectLevelsSelected).map(([key, val]) => {
+      // console.log("key", key, val)
       return (
-        <div style={{ padding: "5px" }}>
-          {key}
+        <div style={{ padding: "5px"}}>
+          <p style={{ width: "90%", display: "inline-block", backgroundColor: "green", margin:"0"}}>{key}</p>
           <input
-            style={{ margin: "2px" }}
+            style={{ width: "10%", height: "100%", color: "pink", margin: "0px" }}
             type="checkbox"
             checked={val}
             onChange={() => this.toggleSubjectLevel(key)}
@@ -208,7 +230,7 @@ class SubjectManager extends Component {
           />
           <div style={{
             // height:"50px",
-            width: "100%",
+            width: "50%",
             backgroundColor:"brown",
             marginTop:"10px"
           }}>
@@ -226,18 +248,20 @@ class SubjectManager extends Component {
             <table className="subject-table">
               <thead>{theadData}</thead>
               <tbody>{tbodyData}</tbody>
-              <div className="subject-tfoot">
-                <button
-                  className="subject-button"
-                  // data-item={visibleSubjects}
-                  onClick={this.clearSubjectSelection}
-                >
-                  nullstill
-                </button>
-              </div>
             </table>
           </div>
         </div>
+        
+        <div className="subject-tfoot">
+          <button
+            className="subject-button"
+            // data-item={visibleSubjects}
+            onClick={this.clearSubjectSelection}
+          >
+            nullstill
+          </button>
+        </div>
+        
       </div>
     );
   }
