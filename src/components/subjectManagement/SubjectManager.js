@@ -3,14 +3,11 @@ import React, { Component } from "react";
 // import { SubjectContainer } from "./SubjectContainer";
 
 class SubjectManager extends Component {
+  
   selectSubject = (e) => {
-    const {
-      subjectsVisible,
-      subjectsSelected,
-      setSubjectsSelected,
-    } = this.state;
-
-    const { forceGraphUpdater } = this.props;
+    
+    const { subjectsSelected } = this.state;
+    const { subjectsVisible, setSubjectsSelected, forceGraphUpdater } = this.props;
 
     const dataItem = e.currentTarget.getAttribute("data-item");
     const temp = subjectsVisible.filter((a) => a.code === dataItem)[0];
@@ -71,6 +68,7 @@ class SubjectManager extends Component {
 
   filterSubjects = (e) => {
     const { subjectsAll } = this.state;
+    const { setSubjectsVisible } = this.props;
     
     let newSubjectsVisible = subjectsAll.filter(
       (node) =>
@@ -79,101 +77,93 @@ class SubjectManager extends Component {
     );
     
     // console.log(e, newSubjectsVisible);
-    this.setState({
-      subjectsVisible: newSubjectsVisible,
-    });
+    
+    setSubjectsVisible(newSubjectsVisible)
+    // this.setState({
+    //   subjectsVisible: newSubjectsVisible,
+    // });
   };
   
-  toggleSubjectLevel = (level) => {
-    const { subjectLevelsSelected, subjectsAll } = this.state;
+  setSorting = (e) => {
+    const dataItem = e.currentTarget.getAttribute("data-item");
     
-    
-    const newSLS = {...subjectLevelsSelected, [level]: !subjectLevelsSelected[level] }
-    const newSV = subjectsAll.filter((node) => {
-      
-        const num = parseInt(node.code.slice(2, node.code.length));
-        
-        if (!Number.isInteger(num)) {
-          return false;
-        }
-      
-        for (const [level, val] of Object.entries(newSLS)) {
-          if (!val) continue;    
-          if (level.localeCompare("bachelor") === 0 && (num < 4000)) return true;
-          else if (level.localeCompare("master") === 0 && (num < 9000) && (num >= 4000)) return true;
-          else if (level.localeCompare("phd") === 0 && (num >= 9000)) return true;
-        }
-        
-        return false;
-      }
-    );
+    // console.log("ss", dataItem)
     
     this.setState({
-      subjectLevelsSelected: newSLS,
-      subjectsVisible: newSV,
+      sortBy: dataItem,
     });
   }
-
+  
   constructor(props) {
     super(props);
 
     this.state = {
       subjectsAll: props.subjectsAll,
-      subjectsVisible: props.subjectsAll,
       subjectsSelected: [],
-      subjectLevelsSelected: {
-        "bachelor": true,
-        "master": true,
-        "phd": true,
-      },
-      
+      // subjectsVisible: props.subjectsVisible,
       setSubjectsSelected: props.setSubjectsSelected,
+      sortBy: "code"
     };
   }
 
   render() {
-    const { subjectsVisible, subjectsSelected, subjectLevelsSelected } = this.state;
+    const { subjectsSelected, sortBy } = this.state;
+    const { subjectsVisible, checkBoxes } = this.props;
 
     const c1 = { width: "10%" };
     const c2 = { width: "40%" };
     const c3 = { width: "15%" };
     const c4 = { width: "10%" };
-    // const c5 = { width: "15%" };
 
+        
+    const sorted = subjectsVisible.sort((a, b) => {
+      switch (sortBy) {
+        case "code":
+          return a.code.localeCompare(b.code);
+        case "title":
+          return a.title.localeCompare(b.title);
+        case "points":
+          return b.points - a.points;
+        case "semester":
+          if (a.semester != null && b.semester != null) {
+          } else if (a.semester != null) {
+            return 1;
+          } else if (b.semester != null) {
+            return -1;
+          }
+          return a.semester.localeCompare(b.semester);
+        case "priority":
+          // console.log(a.requires, b.requires);
+          let reqA = a.requires !== null ? a.requires : [""];
+          let reqB = b.requires !== null ? b.requires : [""];
+
+          let resA = reqA.sort().join();
+          let resB = reqB.sort().join();
+
+          return resB.localeCompare(resA);
+        default:
+          return 0;
+      }
+    });
+    
     const theadData = (
       <tr>
-        <th style={c1} data-item={"code"} id="th1">
-          code
-        </th>
-        <th style={c2} data-item={"title"}>
-          title
-        </th>
-        <th style={c4} data-item={"points"}>
-          points
-        </th>
-        <th style={c3} data-item={"semester"}>
-          semester
-        </th>
+        <th style={c1} onClick={this.setSorting} data-item={"code"} id="th1">kode</th>
+        <th style={c2} onClick={this.setSorting} data-item={"title"}>tittel</th>
+        <th style={c4} onClick={this.setSorting} data-item={"points"}>poeng</th>
+        <th style={c3} onClick={this.setSorting} data-item={"semester"}>semester</th>
         {/* <th style={c5} data-item={"priority"}>
           priority
         </th> */}
       </tr>
     );
 
-    const tbodyData = subjectsVisible.map((row) => {
+    const tbodyData = sorted.map((row) => {
       const isSelected = subjectsSelected.map((d) => d.id).includes(row.id);
       const semRow =
-        row.semester === null ? (
-          <td style={c3} data-item={row.code}>
-            {"utilgjengelig"}
-          </td>
-        ) : (
-          <td style={c3} data-item={row.code}>
-            {row.semester}
-          </td>
-        );
-        
-      // console.log(row.id)
+        row.semester === null
+        ? (<td style={c3} data-item={row.code}>{"utilgjengelig"}</td>)
+        : (<td style={c3} data-item={row.code}>{row.semester}</td>);
 
       return (
         <tr key={row.id} style={trStyle(isSelected, row)}>
@@ -200,45 +190,12 @@ class SubjectManager extends Component {
         </tr>
       );
     });
-    
-    const checkBoxes = Object.entries(subjectLevelsSelected).map(([key, val]) => {
-      // console.log("key", key, val)
-      return (
-        <div style={{ padding: "5px"}}>
-          <p style={{ width: "90%", display: "inline-block", backgroundColor: "green", margin:"0"}}>{key}</p>
-          <input
-            style={{ width: "10%", height: "100%", color: "pink", margin: "0px" }}
-            type="checkbox"
-            checked={val}
-            onChange={() => this.toggleSubjectLevel(key)}
-          />
-        </div>
-      );
-    });
 
+    // const stuff = subjectsVisible.length;
+    
     // elements
     return (
       <div className="outer-outer">
-        <div className="subject-search">
-          <input
-            id="filter"
-            name="filter"
-            type="text"
-            placeholder="tast inn kode eller navn"
-            style={{width:"100%"}}
-            onChange={(event) => this.filterSubjects(event.target.value)}
-          />
-          <div style={{
-            // height:"50px",
-            width: "50%",
-            backgroundColor:"brown",
-            marginTop:"10px"
-          }}>
-            Show
-            {checkBoxes}
-          </div>
-        </div>
-
         <div className="inner-container-subject-table">
           <div>
             {/* search */}
@@ -251,17 +208,55 @@ class SubjectManager extends Component {
             </table>
           </div>
         </div>
-        
+
         <div className="subject-tfoot">
           <button
             className="subject-button"
             // data-item={visibleSubjects}
             onClick={this.clearSubjectSelection}
           >
-            nullstill
+            fjern valg
           </button>
+          {/* <p>{stuff}</p> */}
+          <input
+            id="filter"
+            name="filter"
+            type="text"
+            placeholder="søk kode/tittel"
+            onChange={(event) => this.filterSubjects(event.target.value)}
+          />
+          {/* <div
+          style={{
+            width: "auto",
+            display: "inline-block",
+          }}
+          >
+            
+          </div> */}
+          <div
+            style={{
+              display: "inline-block",
+              float: "right",
+              margin: "10px"
+              // left: "auto"
+            }}
+            >
+            {checkBoxes}
+          </div>
         </div>
-        
+
+        {/* <div className="subject-search">
+          <div
+            style={{
+              // height:"50px",
+              width: "50%",
+              backgroundColor: "brown",
+              marginTop: "10px",
+            }}
+          >
+            Show
+          </div>
+        </div> */}
       </div>
     );
   }

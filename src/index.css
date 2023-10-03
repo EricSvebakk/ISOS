@@ -12,366 +12,293 @@
   --right-bg-color: #ecf1ef;
   --test-color: rgba(255, 0, 0, 0);
   
-  --size-left: 40%;
+  --size-left: 30%;
   --size-middle: 40%;
-  --size-right: 20%;
+  --size-right: 30%;
   
   /* --left-bg-color: rgb(170, 170, 170);
   --middle-bg-color: rgb(138, 255, 138);
   --right-bg-color: rgb(255, 255, 118); */
 }
 
-/* Smartphones (portrait and landscape) ----------- */
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
-  html,
-  body {
-    margin: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgb(231, 39, 39);
-    padding-top: 32px;
-    display: flex;
-  }
 
-  /* ========================================== */
-  .my-navbar {
-    width: 100%;
-    padding: 12px;
-  }
-
-  .title-stuff {
-    /* border: 2px solid red; */
-    color: white !important;
-    text-align: center;
-  }
-
-  /* ========================================== */
-  .App {
-    height: 100%;
-    /* border: 1px solid red; */
-    /* display: flex; */
-  }
-
-  .spacer {
-    height: 10px;
-    width: 10px;
-    /* background-color: aquamarine; */
-  }
-
-  .app-container {
-    height: 100%;
-    width: 100%;
-    font-size: 0;
-    display: flex;
-  }
-
-  .left,
-  .middle,
-  .right {
-    display: inline-block;
-    *display: inline;
-    zoom: 1;
-    vertical-align: top;
-    font-size: 12px;
-    padding: 10px;
-    border: solid 1px var(--test-color);
-  }
-  .left {
-    display: flex;
-    width: var(--size-left);
-    background: var(--left-bg-color);
-    flex-direction: column;
-  }
-  .middle {
-    display: flex;
-    width: var(--size-middle);
-    background: var(--middle-bg-color);
-    flex-direction: column;
-  }
-  .right {
-    width: var(--size-right);
-    background: var(--right-bg-color);
-    flex-direction: column;
-  }
+  
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(164, 233, 233);
+  padding-top: 32px;
+  display: flex;
 }
-/* end smartphone layout */
 
-/* Desktops and laptops ----------- */
-@media only screen and (min-width: 1224px) {
-  html,
-  body {
-    margin: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgb(164, 233, 233);
-    padding-top: 32px;
-    display: flex;
-  }
-
-  /* ========================================== */
-  .my-navbar {
-    width: 100%;
-    padding: 12px;
-  }
-
-  .title-stuff {
-    /* border: 2px solid red; */
-    color: white !important;
-    text-align: center;
-  }
-
-  /* ========================================== */
-  .App {
-    height: 100%;
-    /* border: 1px solid red; */
-    /* display: flex; */
-  }
-
-  .spacer {
-    height: 10px;
-    width: 10px;
-    /* background-color: aquamarine; */
-  }
-
-  .app-container {
-    height: 100%;
-    width: 100%;
-    font-size: 0;
-    display: flex;
-  }
-
-  .left,
-  .middle,
-  .right {
-    display: inline-block;
-    *display: inline;
-    zoom: 1;
-    vertical-align: top;
-    font-size: 12px;
-    padding: 10px;
-    border: solid 1px var(--test-color);
-  }
-  .left {
-    display: flex;
-    width: var(--size-left);
-    background: var(--left-bg-color);
-    flex-direction: column;
-  }
-  .middle {
-    display: flex;
-    width: var(--size-middle);
-    background: var(--middle-bg-color);
-    flex-direction: column;    
-  }
-  .right {
-    display: flex;
-    width: var(--size-right);
-    background: var(--right-bg-color);
-    flex-direction: column;
-  }
-
-  /* ========================================== */
-  
-  /* .subject-search {
-    margin: 10px;
-  } */
-  
-  /* ========================================== */
-
-  .outer-outer {
-    display: block;
-    background-color: red;
-  }
-  
-  .subject-search {
-    background-color: greenyellow;
-    padding: 10px;
-    /* width: 100px;
-    height: 100px; */
-  }
-  
-  .inner-container-subject-table {
-    
-    border: black solid 1px;
-    border-radius: 10px;
-    padding: 10px;
-    
-    background-color: purple;
-  }
-
-  
-  .subject-table {
-    
-    /* padding: 10px; */
-    
-    background-color: var(--table-bg-color);
-
-    width: 100%;
-    
-    table-layout: fixed;
-    border-collapse: collapse;
-    
-    border-radius: 10px;
-  }
-  
-  .subject-table thead {
-    display: table-row;
-    
-    width: 100%;
-    
-    border-bottom: black 1px solid;
-    /* border-top-left-radius: 10px;
-    border-top-right-radius: 10px; */
-    /* background-color: var(--table-bg-darker-color); */
-  }
-  
-  .subject-table tbody {
-    display: block;
-    overflow-y: scroll;
-    
-    width: 100%;
-    height: 60vh;
-  }
-  
-  .subject-table .subject-tfoot {
-    display: table-row;
-    width: 100%;
-    
-    border-top: black 1px solid;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-  }
-  
-  .subject-table th,
-  .subject-table td {
-    background-color: var(--table-bg-color);
-    text-align: left;
-    padding: 0.5rem;
-  }
-  
-  #th1 { border-top-left-radius: 10px; }
-  
-  .td2 {
-    width: 65%;
-  }
-  
-  .subject-button {
-    margin: 10px;
-  }
-
-  .subject-button:hover,
-  .subject-table th:hover,
-  .subject-table tbody tr:hover {
-    filter: brightness(85%);
-  }
-
-  .subject-button:active,
-  .subject-table th:active {
-    filter: brightness(65%);
-  }
-
-  /* ========================================== */
-  .semester-container {
-  }
-
-  .semester-table {
-    
-    /* margin: 10px; */
-    background-color: var(--table-bg-color);
-    outline: 1px solid var(--table-border-color);
-    filter: brightness(85%);
-    width: 80%;
-    /* border-radius: var(--table-border-radius); */
-  }
-
-  .semester-table thead th {
-    border-bottom: 2px solid var(--table-border-color);
-  }
-
-  .semester-table thead,
-  .semester-table tbody tr {
-    display: table;
-    width: 100%;
-    table-layout: fixed;
-  }
-
-  .semester-table tr {
-    background-color: var(--table-bg-color);
-    border-bottom: 1px solid var(--table-border-color);
-    box-sizing: border-box;
-    /* display: inline-block; */
-    /* display: table-cell; */
-    /* align-self: flex-end; */
-  }
-
-  .semester-table th,
-  .semester-table td {
-    text-align: left;
-    padding: 0.5rem;
-    /* border: 1px solid red; */
-  }
-
-  .semester-table thead {
-    width: 100%;
-    /* filter: brightness(85%); */
-    /* display: block; */
-    /* line-height: 0.5; */
-  }
-
-  .semester-table tbody {
-    width: 100%;
-    /* display: block; */
-    /* display: table; */
-    /* vertical-align: bottom; */
-    display: flex;
-    flex-direction: column-reverse;
-    height: 500px;
-    /* actual size doesn't matter? just larger than screen */
-    overflow: auto;
-    /* because of this */
-  }
-
-  /* ========================================== */
-
-  section {
-    /* border: 1px solid var(--myTableBorderColor); */
-    display: flex;
-  }
-
-  .my-container {
-    display: flex;
-  }
-
-  .right div {
-    box-shadow: none;
-  }
-
-  svg {
-    /* box-shadow: none; */
-    /* border: 1px solid red; */
-  }
-
-  /* ========================================== */
-  ::-webkit-scrollbar {
-    -webkit-appearance: none;
-    width: 10px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: var(--table-bg-color);
-    /* filter:brightness(); */
-    /* opacity: 0.2; */
-  }
-
-  ::-webkit-scrollbar-thumb {
-    /* background: rgb(91, 91, 91); */
-    border-radius: 4px;
-    background-color: rgba(0, 0, 0, .5);
-    box-shadow: 0 0 1px rgba(255, 255, 255, .5);
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: #555;
-  }
+/* ========================================== */
+.my-navbar {
+  width: 100%;
+  padding: 12px;
 }
-/* end desktop layout */
+
+.title-stuff {
+  /* border: 2px solid red; */
+  color: white !important;
+  text-align: center;
+}
+
+/* ========================================== */
+.App {
+  height: 100%;
+  /* border: 1px solid red; */
+  /* display: flex; */
+}
+
+.spacer {
+  height: 10px;
+  width: 10px;
+  /* background-color: aquamarine; */
+}
+
+.app-container {
+  height: 100%;
+  width: 100%;
+  font-size: 0;
+  display: flex;
+}
+
+.left,
+.middle,
+.right {
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+  vertical-align: top;
+  font-size: 12px;
+  padding: 10px;
+  border: solid 1px var(--test-color);
+}
+.left {
+  display: flex;
+  width: var(--size-left);
+  background: var(--left-bg-color);
+  flex-direction: column;
+}
+.middle {
+  display: flex;
+  width: var(--size-middle);
+  background: var(--middle-bg-color);
+  flex-direction: column;    
+}
+.right {
+  display: flex;
+  width: var(--size-right);
+  background: var(--right-bg-color);
+  flex-direction: column;
+}
+
+/* ========================================== */
+
+/* .subject-search {
+  margin: 10px;
+} */
+
+/* ========================================== */
+
+.outer-outer {
+  display: inline-block;
+  
+  /* background-color: red; */
+}
+
+.subject-search {
+  background-color: greenyellow;
+  padding: 10px;
+  /* width: 100px;
+  height: 100px; */
+}
+
+/* .subject-search-title */
+
+.inner-container-subject-table {
+  
+  border: black solid 1px;
+  border-radius: 10px;
+  padding: 10px;
+  
+  /* background-color: purple; */
+  background-color: var(--table-bg-darker-color);
+}
+
+
+.subject-table {
+  
+  /* padding: 10px; */
+  
+  background-color: var(--table-bg-color);
+
+  width: 100%;
+  
+  table-layout: fixed;
+  border-collapse: collapse;
+  
+  border-radius: 10px;
+}
+
+.subject-table thead {
+  display: table-row;
+  
+  width: 100%;
+  
+  border-bottom: black 1px solid;
+  /* border-top-left-radius: 10px;
+  border-top-right-radius: 10px; */
+  /* background-color: var(--table-bg-darker-color); */
+}
+
+.subject-table tbody {
+  display: block;
+  overflow-y: scroll;
+  
+  width: 100%;
+  height: 60vh;
+}
+
+.subject-table .subject-tfoot {
+  display: table-row;
+  width: 100%;
+  
+  border-top: black 1px solid;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.subject-table th,
+.subject-table td {
+  background-color: var(--table-bg-color);
+  text-align: left;
+  padding: 0.5rem;
+}
+
+#th1 { border-top-left-radius: 10px; }
+
+.td2 {
+  width: 65%;
+}
+
+.subject-button {
+  margin: 10px;
+}
+
+.subject-button:hover,
+.subject-table th:hover,
+.subject-table tbody tr:hover {
+  filter: brightness(85%);
+}
+
+.subject-button:active,
+.subject-table th:active {
+  filter: brightness(65%);
+}
+
+/* ========================================== */
+.semester-container {
+}
+
+.semester-table {
+  
+  /* margin: 10px; */
+  background-color: var(--table-bg-color);
+  outline: 1px solid var(--table-border-color);
+  filter: brightness(85%);
+  width: 80%;
+  /* border-radius: var(--table-border-radius); */
+}
+
+.semester-table thead th {
+  border-bottom: 2px solid var(--table-border-color);
+}
+
+.semester-table thead,
+.semester-table tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.semester-table tr {
+  background-color: var(--table-bg-color);
+  border-bottom: 1px solid var(--table-border-color);
+  box-sizing: border-box;
+  /* display: inline-block; */
+  /* display: table-cell; */
+  /* align-self: flex-end; */
+}
+
+.semester-table th,
+.semester-table td {
+  text-align: left;
+  padding: 0.5rem;
+  /* border: 1px solid red; */
+}
+
+.semester-table thead {
+  width: 100%;
+  /* filter: brightness(85%); */
+  /* display: block; */
+  /* line-height: 0.5; */
+}
+
+.semester-table tbody {
+  width: 100%;
+  /* display: block; */
+  /* display: table; */
+  /* vertical-align: bottom; */
+  display: flex;
+  flex-direction: column-reverse;
+  height: 500px;
+  /* actual size doesn't matter? just larger than screen */
+  overflow: auto;
+  /* because of this */
+}
+
+/* ========================================== */
+
+section {
+  /* border: 1px solid var(--myTableBorderColor); */
+  display: flex;
+}
+
+.my-container {
+  display: flex;
+}
+
+.right div {
+  box-shadow: none;
+}
+
+svg {
+  /* box-shadow: none; */
+  /* border: 1px solid red; */
+}
+
+/* ========================================== */
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--table-bg-color);
+  /* filter:brightness(); */
+  /* opacity: 0.2; */
+}
+
+::-webkit-scrollbar-thumb {
+  /* background: rgb(91, 91, 91); */
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, .5);
+  box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

@@ -75,18 +75,20 @@ export function runForceGraph(
   const div = d3.select("#graph-tooltip");
 
   const addTooltip = (hoverTooltip, d, x, y) => {
-    const sw = document.body.querySelector(".App").offsetWidth;
-    const rw = document.body.querySelector(".right").offsetWidth;
-
+    // const sw = document.body.querySelector(".App").offsetWidth;
+    // const rw = document.body.querySelector(".right").offsetWidth;
+    const nw = document.body.querySelector(".my-navbar").offsetHeight;
+    const w = 160
+    
     div
       .transition()
       .duration(200)
-      .style("opacity", 0.9);
+      .style("opacity", 0.95);
     div
       .html(hoverTooltip(d))
-      .style("width", "160px")
-      .style("left", `${sw - rw + 10}px`)
-      .style("top", `${y - 28}px`);
+      .style("width", `${w}px`)
+      .style("left", `${10}px`)
+      .style("top", `${nw+10}px`);
   };
 
   const removeTooltip = () => {

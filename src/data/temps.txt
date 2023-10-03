@@ -1,131 +1,132 @@
-IN1000: 2. desember kl. 15:00 (4 timer).
-IN1010: 7. juni kl. 09:00 (4 timer).
-IN1020: 12. desember kl. 15:00 (4 timer).
-IN1030: 5. juni kl. 09:00 (4 timer).
-IN1050: 28. november kl. 15:00 (4 timer).
+IN1000: 1. desember kl. 09:00 (4 timer).
+IN1010: None
+IN1020: 11. desember kl. 09:00 (4 timer).
+IN1030: None
+IN1050: 28. november kl. 09:00 (4 timer).
 IN1060: None
-IN1080: 14. juni kl. 09:00 (4 timer).
-IN1140: 30. november kl. 09:00 (4 timer).
+IN1080: None
+IN1140: 7. desember kl. 15:00 (4 timer).
 IN1150: None
-IN2000: 13. juni kl. 09:00 (4 timer).
-IN2010: 1. desember kl. 15:00 (4 timer).
-IN2020: 29. november kl. 09:00 (4 timer).
+IN2000: None
+IN2010: 15. desember kl. 09:00 (4 timer).
+IN2020: 7. desember kl. 15:00 (4 timer).
 IN2030: None
-IN2040: 28. november kl. 15:00 (4 timer).
-IN2060: 13. desember kl. 15:00 (4 timer).
+IN2040: 8. desember kl. 09:00 (4 timer).
+IN2060: 12. desember kl. 09:00 (4 timer).
 IN2070: None
-IN2080: 30. mai kl. 15:00 (4 timer).
-IN2090: 7. desember kl. 09:00 (4 timer).
-IN2100: 15. juni kl. 09:00 (4 timer).
-IN2110: 13. juni kl. 15:00 (4 timer).
-IN2120: 9. desember kl. 15:00 (4 timer).
-IN2140: 7. juni kl. 15:00 (4 timer).
+IN2080: None
+IN2090: 13. desember kl. 09:00 (4 timer).
+IN2100: None
+IN2110: None
+IN2120: 27. november kl. 09:00 (4 timer).
+IN2140: None
 IN2150: None
 IN3000: None
 IN3010: None
-IN3015: None
-IN3020: June 5 at 3:00 PM (4 hours).
-IN3030: May 31 at 3:00 PM (4 hours).
-IN3040: 14. desember kl. 15:00 (4 timer).
-IN3050: May 30 at 9:00 AM (4 hours).
-IN3060: June 13 at 9:00 AM (4 hours).
-IN3070: December 12 at 9:00 AM (4 hours).
+IN3015: 11. desember kl. 15:00 (4 timer).
+IN3020: None
+IN3030: None
+IN3040: 14. desember kl. 09:00 (4 timer).
+IN3050: None
+IN3060: None
+IN3070: November 30 at 3:00 PM (4 hours).
 IN3090: None
 IN3110: None
-IN3120: 5. desember kl. 09:00 (4 timer).
-IN3130: 15. desember kl. 15:00 (4 timer).
-IN3140: 9. juni kl. 15:00 (4 timer).
-IN3160: 2. juni kl. 09:00 (4 timer).
-IN3170: June 7 at 9:00 AM (4 hours).
-IN3190: December 13 (4 hours).
-IN3200: 30. mai kl. 15:00 (4 timer).
-IN3210: December 2 at 9:00 AM (4 hours).
+IN3120: 28. november kl. 15:00 (4 timer).
+IN3130: None
+IN3140: None
+IN3160: None
+IN3170: None
+IN3190: None
+IN3200: None
+IN3210: December 12 at 9:00 AM (4 hours).
 IN3220: None
-IN3230: 16. desember kl. 09:00 (4 timer).
-IN3240: 9. juni kl. 09:00 (4 timer).
+IN3230: 5. desember kl. 15:00 (4 timer).
+IN3240: None
 IN3250: None
 IN3260: None
 IN3280: None
-IN3310: June 15 at 9:00 AM (4 hours).
+IN3310: None
 IN4000: None
-IN4015: None
-IN4020: June 5 at 3:00 PM (4 hours).
-IN4030: June 5 at 9:00 AM (4 hours).
-IN4050: May 30 at 9:00 AM (4 hours).
-IN4060: June 13 at 9:00 AM (4 hours).
-IN4070: December 12 at 9:00 AM (4 hours).
-IN4080: December 13 at 9:00 AM (4 hours).
+IN4015: 11. desember kl. 15:00 (4 timer).
+IN4020: None
+IN4030: None
+IN4050: None
+IN4060: None
+IN4070: November 30 at 3:00 PM (4 hours).
+IN4080: December 7 at 9:00 AM (4 hours).
 IN4110: None
-IN4120: 5. desember kl. 09:00 (4 timer).
-IN4140: 9. juni kl. 15:00 (4 timer).
+IN4120: 28. november kl. 15:00 (4 timer).
+IN4140: None
 IN4150: None
-IN4160: 2. juni kl. 09:00 (4 timer).
-IN4170: June 7 at 9:00 AM (4 hours).
-IN4180: June 13 at 3:00 PM (4 hours).
-IN4190: 13. desember.
-IN4200: 30. mai kl. 15:00 (4 timer).
-IN4210: December 2 at 9:00 AM (4 hours).
+IN4160: None
+IN4170: None
+IN4180: None
+IN4190: None
+IN4200: None
+IN4210: December 12 at 9:00 AM (4 hours).
 IN4220: None
-IN4230: 16. desember kl. 09:00 (4 timer).
-IN4240: 9. juni kl. 09:00 (4 timer).
+IN4230: 5. desember kl. 15:00 (4 timer).
+IN4240: None
 IN4260MCT: None
 IN4270: None
-IN4310: June 15 at 9:00 AM (4 hours).
-IN4330: May 31 at 3:00 PM (4 hours).
-IN4340: 6. desember kl. 15:00 (3 timer).
+IN4310: None
+IN4330: None
+IN4340: None
 IN4380: None
 IN5000: None
 IN5010: None
-IN5020: 29. november kl. 09:00 (7 timer 30 minutter).
-IN5030: June 2 at 9:00 AM (9 hours).
-IN5040: 29. november kl. 11:00 (5 timer).
+IN5020: None
+IN5030: None
+IN5040: None
 IN5050: None
 IN5060: None
-IN5070: December 8 at 10:00 AM (8 hours).
-IN5080: 15. juni kl. 09:00 (4 timer).
+IN5070: None
+IN5080: None
 IN5090: None
 IN5100: None
 IN5110: None
 IN5120: None
-IN5130: December 15 at 3:00 PM (4 hours).
-IN5140: November 28 at 9:00 AM (4 hours).
-IN5150: November 25.
+IN5130: December 21 at 9:00 AM (4 hours).
+IN5140: December 4 at 3:00 PM (4 hours).
+IN5150: None
 IN5160: None
-IN5170: December 2 at 3:00 PM (4 hours).
-IN5180: December 12 at 9:00 AM (4 hours).
+IN5170: November 28 at 3:00 PM (4 hours).
+IN5180: November 28 at 3:00 PM (4 hours).
 IN5200: None
 IN5210: None
 IN5220: None
-IN5230: 6. desember kl. 11:00 (6 timer).
-IN5240: December 13.
+IN5230: None
+IN5240: None
 IN5250: None
-IN5260: June 2 at 8:00 AM (8 hours).
-IN5290: November 30 at 9:00 AM (4 hours).
+IN5260: None
+IN5290: November 30 at 3:00 PM (4 hours).
 IN5310: None
 IN5320: None
 IN5340: None
-IN5350: December 9 at 3:00 PM (4 hours).
+IN5350: December 12 at 9:00 AM (4 hours).
 IN5360: None
 IN5390: None
 IN5400: None
-IN5410: May 30 at 9:00 AM (9 hours).
+IN5410: None
 IN5420: None
-IN5431: June 5 at 3:00 PM (4 hours).
+IN5431: None
 IN5440: None
 IN5450: None
 IN5460: None
 IN5470: None
 IN5480: None
 IN5490: None
-IN5500: May 31 at 9:00 AM (8 hours).
-IN5510: 8. desember kl. 09:00 (7 timer).
-IN5520: December 2 at 3:00 PM (4 hours).
+IN5500: None
+IN5510: None
+IN5520: None
 IN5530: None
-IN5540: December 8 at 3:00 PM (4 hours).
+IN5540: November 28 at 3:00 PM (4 hours).
 IN5550: None
-IN5570: June 1 at 10:00 AM (6 hours).
+IN5570: None
 IN5580: None
-IN5600: June 8 at 9:00 AM (6 hours).
+IN5590: None
+IN5600: None
 IN5610: None
 IN5620: None
 IN5700: None
@@ -133,43 +134,43 @@ IN5800: None
 IN9000: None
 IN9010: None
 IN9020: None
-IN9030: June 2 at 9:00 AM (9 hours).
-IN9040: 29. november kl. 11:00.
+IN9030: None
+IN9040: None
 IN9050: None
 IN9060: None
 IN9070: None
 IN9100: None
 IN9110: None
 IN9120: None
-IN9130: None
-IN9140: November 28 at 9:00 AM (4 hours).
-IN9150: November 25.
-IN9170: December 2 at 3:00 PM (4 hours).
+IN9130: December 21 at 9:00 AM (4 hours).
+IN9140: December 4 at 3:00 PM (4 hours).
+IN9150: None
+IN9170: November 28 at 3:00 PM (4 hours).
 IN9200: None
 IN9210: None
 IN9220: None
-IN9230: 6. desember kl. 11:00 (6 timer).
+IN9230: None
 IN9240: None
 IN9260: None
-IN9290: November 30 at 9:00 AM (4 hours).
+IN9290: November 30 at 3:00 PM (4 hours).
 IN9310: None
 IN9340: None
-IN9350: December 9 at 3:00 PM (4 hours).
+IN9350: December 12 at 9:00 AM (4 hours).
 IN9390: None
 IN9400: None
-IN9410: May 30 at 9:00 AM (9 hours).
+IN9410: None
 IN9420: None
 IN9440: None
 IN9450: None
 IN9460: None
 IN9490: None
-IN9500: 31. mai kl. 09:00 (8 timer).
+IN9500: None
 IN9510: None
-IN9520: 2. desember kl. 15:00 (4 timer).
+IN9520: None
 IN9530: None
-IN9540: December 8 at 3:00 PM (4 hours).
+IN9540: November 28 at 3:00 PM (4 hours).
 IN9550: None
-IN9570: June 1 at 10:00 AM (6 hours).
+IN9570: None
 IN9580: None
 IN9600: None
 IN9620: None

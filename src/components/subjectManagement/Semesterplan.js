@@ -1,14 +1,14 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-export function SemesterPlan({
+export default function SemesterPlan({
   nodesData,
   linksData,
   result: sortedNodes,
-  sems,
   setTopsort,
-  setSemesters,
   funcColor,
+  setSemesters,
+  sems,
 }) {
   const containerRef = React.useRef("huurdur");
 
@@ -20,15 +20,8 @@ export function SemesterPlan({
     );
 
     if (containerRef.current) {
-		
-		// nodesData.sort((n, m) =>
-		// n.code.localeCompare(m.code) ? -1 : 1
-    	// )
-		
       let result = topSort(nodesData, links);
-
       setTopsort(result);
-    //   console.log("sort result", result);
     }
   }, [nodesData]);
 
@@ -56,7 +49,7 @@ export function SemesterPlan({
   );
 }
 
-export default SemesterPlan;
+// export default SemesterPlan;
 
 //
 function getSems(nodes, funcColor) {
@@ -83,7 +76,7 @@ function getSems(nodes, funcColor) {
       reqs = reqs.filter((n) => node !== n);
 
       //
-      if (node.semester.toLowerCase().includes(type)) {
+      if (node.semester && node.semester.toLowerCase().includes(type)) {
         let result = reqs.filter((n) => semester.includes(n));
 
         //

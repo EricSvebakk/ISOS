@@ -8,15 +8,15 @@ export function ForceGraph({
   nodesPosition,
   setNodesPosition,
   setForceGraphUpdater,
-  funcColor
+  funcColor,
   
-  // nodeHoverTooltip,
+  nodeHoverTooltip,
   // funcColor,
 }) {
   const containerRef = React.useRef(null);
 
   // const funcColor = () => {}
-  const nodeHoverTooltip = () => {}
+  // const nodeHoverTooltip = () => {}
   
   
   React.useEffect(() => {
