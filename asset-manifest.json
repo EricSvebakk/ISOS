@@ -1,7 +1,7 @@
 {
   "main.css": "/ISOS/static/css/main.ad18347b.chunk.css",
-  "main.js": "/ISOS/static/js/main.32ab1246.chunk.js",
-  "main.js.map": "/ISOS/static/js/main.32ab1246.chunk.js.map",
+  "main.js": "/ISOS/static/js/main.b77c2ce3.chunk.js",
+  "main.js.map": "/ISOS/static/js/main.b77c2ce3.chunk.js.map",
   "static/css/1.d5bc56bd.chunk.css": "/ISOS/static/css/1.d5bc56bd.chunk.css",
   "static/js/1.7b257f46.chunk.js": "/ISOS/static/js/1.7b257f46.chunk.js",
   "static/js/1.7b257f46.chunk.js.map": "/ISOS/static/js/1.7b257f46.chunk.js.map",
@@ -11,6 +11,6 @@
   "static/css/main.ad18347b.chunk.css.map": "/ISOS/static/css/main.ad18347b.chunk.css.map",
   "static/css/1.d5bc56bd.chunk.css.map": "/ISOS/static/css/1.d5bc56bd.chunk.css.map",
   "index.html": "/ISOS/index.html",
-  "precache-manifest.aa9bb013f1ff8515dcc37239ff7b9216.js": "/ISOS/precache-manifest.aa9bb013f1ff8515dcc37239ff7b9216.js",
+  "precache-manifest.b0ba16494056bdf0bbec8c0c6aed7c24.js": "/ISOS/precache-manifest.b0ba16494056bdf0bbec8c0c6aed7c24.js",
   "service-worker.js": "/ISOS/service-worker.js"
 }
