@@ -26,16 +26,16 @@ def main():
 	regex = "(?!IN19[0-1]{1}0)(IN[0-9]{4}[A-Z]?)"
 	
 	year = {}
-	year["h"] = 22
-	year["v"] = 23
+	year["h"] = 23
+	year["v"] = 24
 	
-	file_name = "ifi_subjects_010823.json"
+	file_name = "ifi_subjects_050923.json"
 	
-	# dictionary = scrape(results, regex, fields, year)
+	dictionary = scrape(results, regex, fields, year)
 	
 	# try:
-	dictionary = json.load(open(file_name, "r"))
-	validate_equivs(dictionary["nodes"])
+	# dictionary = json.load(open(file_name, "r"))
+	# validate_equivs(dictionary["nodes"])
 	# except OSError:
 	# 	dictionary = {}
 	
